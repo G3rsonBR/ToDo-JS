@@ -22,5 +22,3 @@ if (tasks.length > 0) {
   console.log(tasks.length)
   createTask()
 }
-
-// Testando o Git
