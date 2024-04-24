@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>ToDo App</title>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>ToDo App</h1>
+    </header>
+    <form id="formsCreateTask">
+      <input class="inputAddTask" type="text" placeholder="Adicione uma nova tarefa">
+      <button class="btnAddTask" onclick="throwCreateTask()" type="submit">+</button>
+    </form>
+
+    <div class="tasksContent">
+      <p id="noTasks">Não há tarefas</p>
+    </div>
+  </main>
+  
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
