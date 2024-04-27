@@ -5,13 +5,15 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  background-color: rgb(39, 36, 48);
+}
+
 main {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(39, 36, 48);
 }
 
 header {
@@ -29,14 +31,14 @@ header h1 {
 
 form {
   margin-top: -20px;
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 8px;
 }
 
 form input {
-  width: 90%;
+  width: 500px;
   padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid black;
@@ -46,7 +48,7 @@ form input {
 }
 
 form button {
-  width: 10%;
+  width: 50px;
   border-radius: 5px;
   border: 1px solid rgb(29, 29, 34);
   background-color: rgb(54, 52, 80);
@@ -60,13 +62,136 @@ form button:hover {
 }
 
 .tasksContent {
-  width: 50%;
-  margin-top: 20px;
+  width: 600px;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto; 
+  height: 60vh;
 }
+
 
 .tasksContent #noTasks {
   color: rgb(161, 161, 161);
+}
+
+.tasksContent .task {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(29, 29, 34);
+  background-color: rgb(54, 52, 80);
+  color: white;
+}
+
+.tasksContent .task .deleteTaskBtn {
+  border: none;
+  background-color: transparent;
+  padding: 0 15px;
+  color: rgb(233, 75, 75);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: larger;
+  cursor: pointer;
+  transition: .3s all ease-in;
+}
+
+.tasksContent .task .deleteTaskBtn:hover { background-color: rgba(119, 124, 151, 0.425); color: rgb(255, 72, 72); }
+
+
+.checked {
+  color: rgb(179, 179, 179);
+  text-decoration: line-through;
+  text-decoration-color: rgb(255, 255, 255);
+}
+
+/* Input Style */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgb(133, 131, 192);
+  border: 0.15rem solid rgb(34, 33, 71);
+  margin: 0;
+
+  padding: .3rem;
+  border-radius: 1rem;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+  transition: .3s all ease-in;
+}
+
+input[type="checkbox"]:hover { background-color: rgb(156, 152, 231); }
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(219, 219, 219);
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(59, 78, 112);
+  border: 0.15rem solid rgb(34, 33, 71);
+}
+
+input[type="checkbox"]:checked:hover { background-color: rgb(86, 114, 163); }
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Scrollbar style */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #b6b6b615; 
+  border-radius: 15px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555f63; 
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #464b4d; 
+}
+
+
+/* Responsividade */
+@media screen and (max-width: 705px) {
+  #formsCreateTask, .tasksContent {
+    width: 80%;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .tasksContent .task {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #formsCreateTask, .tasksContent {
+    width: 95%;
+  }
 }
